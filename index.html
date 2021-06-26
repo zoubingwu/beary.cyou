@@ -68,12 +68,21 @@
         max-width: 612px;
         max-height: 319px;
       }
+
+      .comment {
+        justify-content: flex-start;
+      }
+
+      #cusdis_thread {
+        margin-top: 30px;
+        width: 60%;
+      }
     </style>
   </head>
   <body>
     <div id="app">
       <div class="section">
-        <div class="content 2015">
+        <div class="content">
           <img src="./assets/2015.png" class="title" />
           <img src="./assets/xiong1.png" class="xiong1" />
         </div>
@@ -108,7 +117,23 @@
           <img src="./assets/img_banner6.png" class="xiong6" />
         </div>
       </div>
+
+      <div class="section">
+        <div class="content comment">
+          <div
+            id="cusdis_thread"
+            data-host="https://cusdis.com"
+            data-app-id="3de79b13-ebe6-4f25-a02c-2be3136005e7"
+            data-page-id="home-page"
+            data-page-url="https://beary.cyou"
+            data-page-title="See You BearyChat"
+          ></div>
+        </div>
+      </div>
     </div>
+
+    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>
