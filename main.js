@@ -1,4 +1,3 @@
-import './main.css';
 import fullpage from 'fullpage.js';
 import xiong1 from './assets/xiong1.gif';
 import xiong2 from './assets/xiong2.gif';
@@ -7,18 +6,14 @@ import xiong4 from './assets/xiong4.gif';
 import xiong5 from './assets/xiong5.gif';
 
 function loadImage(src, target) {
-  return new Promise(function (resolve, reject) {
-    const img = new Image();
-    img.onload = function () {
-      document.querySelector(target).src = this.src;
-      resolve(img);
-    };
-    img.onerror = function (e) {
-      console.log(e);
-      reject(e);
-    };
-    img.src = src;
-  });
+  const img = new Image();
+  img.onload = function () {
+    document.querySelector(target).src = this.src;
+  };
+  img.onerror = function (e) {
+    console.error(e);
+  };
+  img.src = src;
 }
 
 function init() {
