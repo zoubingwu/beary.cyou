@@ -1,0 +1,4 @@
+.husky/
+assets/
+dist/
+node_modules/

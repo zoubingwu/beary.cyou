@@ -3,10 +3,17 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "prepare": "husky install",
+    "fmt": "prettier . --write"
   },
   "devDependencies": {
-    "vite": "^2.3.8"
+    "husky": "^6.0.0",
+    "prettier": "^2.3.2",
+    "pretty-quick": "^3.1.1",
+    "rollup-plugin-imagemin": "^0.4.1",
+    "vite": "^2.3.8",
+    "vite-plugin-html": "^2.0.7"
   },
   "dependencies": {
     "fullpage.js": "^3.1.2"
