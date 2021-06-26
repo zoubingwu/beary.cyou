@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.section {
+  width: 100vw;
+  height: 100vh;
+  background-color: bisque;
+  background-image: url('./assets/bg-texture.jpeg');
+  background-repeat: repeat;
+}
+
+.section img {
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.title {
+  max-width: 440px;
+  max-height: 104px;
+  margin-bottom: 40px;
+}
+.xiong1 {
+  max-height: 380px;
+  max-width: 356px;
+}
+.xiong2 {
+  max-height: 300px;
+  max-width: 610px;
+}
+.xiong3 {
+  max-height: 457px;
+  max-width: 435px;
+}
+.xiong4 {
+  max-width: 1000px;
+  max-height: 518px;
+}
+.xiong5 {
+  max-width: 900px;
+  max-height: 394px;
+}
+.xiong6 {
+  max-width: 612px;
+  max-height: 319px;
+}
+
+.comment {
+  justify-content: flex-start;
+}
+
+#cusdis_thread {
+  margin-top: 30px;
+  width: 60%;
+}

@@ -1,17 +1,10 @@
+import './main.css';
 import fullpage from 'fullpage.js';
-
 import xiong1 from './assets/xiong1.gif';
 import xiong2 from './assets/xiong2.gif';
 import xiong3 from './assets/xiong3.gif';
 import xiong4 from './assets/xiong4.gif';
 import xiong5 from './assets/xiong5.gif';
-
-import texture from './assets/bg-texture.jpeg';
-
-const sections = document.querySelectorAll('.section');
-sections.forEach(function (section) {
-  section.style.backgroundImage = `url("${texture}")`;
-});
 
 function loadImage(src, target) {
   return new Promise(function (resolve, reject) {
