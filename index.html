@@ -4,41 +4,110 @@
     <meta charset="UTF-8" />
     <!-- <link rel="icon" type="image/svg+xml" href="favicon.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>See You BearyChat</title>
     <style>
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .example {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
       .section {
         background-color: bisque;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        background-image: url(./assets/bg-texture.jpeg);
+        background-repeat: repeat;
+        width: 100vw;
+        height: 100vh;
       }
 
       .section img {
-        transform: scale(0.5);
+        width: 100%;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+      .title {
+        max-width: 440px;
+        max-height: 104px;
+        margin-bottom: 40px;
+      }
+      .xiong1 {
+        max-height: 380px;
+        max-width: 356px;
+      }
+      .xiong2 {
+        max-height: 300px;
+        max-width: 610px;
+      }
+      .xiong3 {
+        max-height: 457px;
+        max-width: 435px;
+      }
+      .xiong4 {
+        max-width: 1000px;
+        max-height: 518px;
+      }
+      .xiong5 {
+        max-width: 900px;
+        max-height: 394px;
+      }
+      .xiong6 {
+        max-width: 612px;
+        max-height: 319px;
       }
     </style>
   </head>
   <body>
-    <div id="fullpage">
+    <div id="app">
       <div class="section">
-        <img src="./assets/1.webp" alt="">
+        <div class="content 2015">
+          <img src="./assets/2015.png" class="title" />
+          <img src="./assets/xiong1.png" class="xiong1" />
+        </div>
       </div>
       <div class="section">
-        <img src="./assets/xiong2.gif" alt="">
+        <div class="content">
+          <img src="./assets/2016.png" class="title" />
+          <img src="./assets/xiong2.png" class="xiong2" />
+        </div>
       </div>
       <div class="section">
-        <img src="./assets/xiong3.gif" alt="">
+        <div class="content">
+          <img src="./assets/2017.png" class="title" />
+          <img src="./assets/xiong3.png" class="xiong3" />
+        </div>
       </div>
       <div class="section">
-        <img src="./assets/xiong4.gif" alt="">
+        <div class="content">
+          <img src="./assets/2018.png" class="title" />
+          <img src="./assets/xiong4.png" class="xiong4" />
+        </div>
       </div>
       <div class="section">
-        <img src="./assets/xiong5.webp" alt="">
+        <div class="content">
+          <img src="./assets//2019-2021.png" class="title" />
+          <img src="./assets/xiong5.png" class="xiong5" />
+        </div>
+      </div>
+      <div class="section">
+        <div class="content">
+          <img src="./assets//farewell.png" class="title" />
+          <img src="./assets/img_banner6.png" class="xiong6" />
+        </div>
       </div>
     </div>
     <script type="module" src="/main.js"></script>
