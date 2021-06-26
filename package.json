@@ -1,5 +1,7 @@
 {
-  "version": "0.0.0",
+  "name": "beary.cyou",
+  "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "start": "vite",
     "build": "vite build",
