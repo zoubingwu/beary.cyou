@@ -12,21 +12,20 @@
         box-sizing: border-box;
       }
 
-      ::-webkit-scrollbar {
+      body::-webkit-scrollbar {
         display: none;
       }
 
-      /* Hide scrollbar for IE, Edge and Firefox */
-      .example {
+      body {
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none; /* Firefox */
       }
+
       .section {
-        background-color: bisque;
-        background-image: url(./assets/bg-texture.jpeg);
-        background-repeat: repeat;
         width: 100vw;
         height: 100vh;
+        background-color: bisque;
+        background-repeat: repeat;
       }
 
       .section img {

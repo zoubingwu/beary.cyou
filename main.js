@@ -1,5 +1,17 @@
 import fullpage from 'fullpage.js';
 
+import xiong1 from './assets/xiong1.gif';
+import xiong2 from './assets/xiong2.gif';
+import xiong3 from './assets/xiong3.gif';
+import xiong4 from './assets/xiong4.gif';
+import xiong5 from './assets/xiong5.gif';
+import texture from './assets/bg-texture.jpeg';
+
+const sections = document.querySelectorAll('.section');
+sections.forEach(function (section) {
+  section.style.backgroundImage = `url("${texture}")`;
+});
+
 function loadImage(src, target) {
   return new Promise(function (resolve, reject) {
     const img = new Image();
@@ -7,7 +19,10 @@ function loadImage(src, target) {
       document.querySelector(target).src = this.src;
       resolve(img);
     };
-    img.onerror = reject;
+    img.onerror = function (e) {
+      console.log(e);
+      reject(e);
+    };
     img.src = src;
   });
 }
@@ -18,11 +33,11 @@ function init() {
   new fullpage('#app');
   window.console = c;
 
-  loadImage('./assets/xiong1.gif', '.xiong1');
-  loadImage('./assets/xiong2.gif', '.xiong2');
-  loadImage('./assets/xiong3.gif', '.xiong3');
-  loadImage('./assets/xiong4.gif', '.xiong4');
-  loadImage('./assets/xiong5.gif', '.xiong5');
+  loadImage(xiong1, '.xiong1');
+  loadImage(xiong2, '.xiong2');
+  loadImage(xiong3, '.xiong3');
+  loadImage(xiong4, '.xiong4');
+  loadImage(xiong5, '.xiong5');
 }
 
 window.onload = init;
