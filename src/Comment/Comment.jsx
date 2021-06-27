@@ -122,7 +122,7 @@ function CommentItem({ name, date, content }) {
         <span className="text-sm text-gray-400">{formatDate(date)}</span>
       </div>
 
-      <div>{content}</div>
+      <div className="text-gray-500">{content}</div>
     </div>
   );
 }
