@@ -4,6 +4,8 @@ import { getComments, postComment } from './fetch';
 
 export default function Comment() {
   const [page, setPage] = useState(1);
+  const [commentCount, setCommentCount] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
   const [comments, setComments] = useState([]);
   const [content, setContent] = useState('');
   const [nickname, setNickname] = useState('');
@@ -20,6 +22,8 @@ export default function Comment() {
       return;
     }
 
+    if (sending) return;
+
     setSending(true);
     postComment(content, nickname)
       .then(() => {
@@ -35,8 +39,12 @@ export default function Comment() {
   useEffect(() => {
     getComments(page).then(res => {
       setComments(res.data.data.data);
+      setPageCount(res.data.data.pageCount);
+      setCommentCount(res.data.data.commentCount);
     });
   }, [page]);
+
+  const paginator = 'underline text-true-gray-500 mr-2 cursor-pointer';
 
   return (
     <div class="w-full max-w-600px p-8">
@@ -50,12 +58,12 @@ export default function Comment() {
           onInput={e => setNickname(e.target.value)}
           placeholder="昵称"
           type="text"
-          className="bg-transparent rounded border-2 border-dark-700 border-solid px-2 placeholder-warm-gray-500 h-36px mr-4"
+          className="<sm:w-full <sm:mb-2 bg-transparent rounded border-2 border-dark-700 border-solid px-2 placeholder-warm-gray-500 h-36px mr-4"
         />
         <button
           onClick={handleSubmitComment}
           disabled={sending}
-          className="w-180px h-36px bg-[#62BA6A] text-white rounded"
+          className="<sm:w-full w-180px h-36px bg-[#62BA6A] text-white rounded"
         >
           发送
         </button>
@@ -69,6 +77,27 @@ export default function Comment() {
             key={i.id}
           />
         ))}
+
+        {pageCount >= 5 && page > 5 && (
+          <a onClick={() => setPage(1)} className={paginator}>
+            first
+          </a>
+        )}
+        {pageCount > 1 && page > 1 && (
+          <a onClick={() => setPage(page - 1)} className={paginator}>
+            prev
+          </a>
+        )}
+        {pageCount > 1 && page < pageCount && (
+          <a onClick={() => setPage(page + 1)} className={paginator}>
+            next
+          </a>
+        )}
+        {pageCount >= 5 && page < pageCount && (
+          <a onClick={() => setPage(pageCount)} className={paginator}>
+            last
+          </a>
+        )}
       </div>
     </div>
   );
@@ -87,12 +116,11 @@ function formatDate(d) {
 
 function CommentItem({ name, date, content }) {
   return (
-    <div className="my-2 pl-4 border-solid border-l-2 border-dark-700">
-      <div className="mb-2">
+    <div className="my-2">
+      <div className="mb-1">
         <span className="text-dark-800 mr-4 text-base">{name}</span>
-        <span className="text-sm text-warm-gray-500">{formatDate(date)}</span>
+        <span className="text-sm text-gray-400">{formatDate(date)}</span>
       </div>
-      <div>{content}</div>
     </div>
   );
 }
