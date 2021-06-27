@@ -13,6 +13,29 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 
+textarea {
+  border: none;
+  overflow: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  resize: none !important;
+}
+
+button,
+button:focus {
+  outline: none !important;
+}
+
+input:focus {
+  outline: 0;
+}
+
+::-webkit-search-decoration {
+  display: none;
+}
+
 .section {
   width: 100vw;
   height: 100vh;
