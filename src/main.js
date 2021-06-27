@@ -71,7 +71,6 @@ function initFullPageEffect() {
       q.push(e.deltaY);
     } else if (e.type === 'touchmove') {
       const clientY = e.changedTouches[0].clientY;
-      console.log('clientY: ', clientY);
       if (prevTouchY.length > 0) {
         const deltaY = prevTouchY[prevTouchY.length - 1] - clientY;
         q.push(deltaY);

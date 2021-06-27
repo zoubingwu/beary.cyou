@@ -121,6 +121,8 @@ function CommentItem({ name, date, content }) {
         <span className="text-dark-800 mr-4 text-base">{name}</span>
         <span className="text-sm text-gray-400">{formatDate(date)}</span>
       </div>
+
+      <div>{content}</div>
     </div>
   );
 }
