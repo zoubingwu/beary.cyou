@@ -22,15 +22,13 @@ export function getComments(page) {
 
 export function postComment(content, nickname) {
   return api.post('/comments', {
-    data: {
-      content,
-      nickname,
+    content,
+    nickname,
 
-      email: '',
-      appId,
-      pageId,
-      pageTitle,
-      pageUrl,
-    },
+    email: '',
+    appId,
+    pageId,
+    pageTitle,
+    pageUrl,
   });
 }
