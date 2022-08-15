@@ -10,8 +10,8 @@ export const api = axios.create({
   baseURL,
 });
 
-export function getComments(page) {
-  return api.get('/comments', {
+export function getComments(url = 'comments', page) {
+  return api.get(url, {
     params: {
       page,
       appId,
