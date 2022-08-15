@@ -12,4 +12,11 @@ export default defineConfig({
       targets: ['defaults', 'not IE 11'],
     }),
   ],
+  resolve: {
+    alias: {
+      react: 'preact/compat',
+      'react-dom': 'preact/compat',
+      'react/jsx-runtime': 'preact/jsx-runtime',
+    },
+  },
 });
