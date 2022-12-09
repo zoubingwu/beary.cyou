@@ -16,7 +16,8 @@ export default function CommentList() {
     return 'Loading...';
   }
 
-  const { pageCount, data: comments } = data.data.data;
+  const { total, data: comments } = data.data;
+  const pageCount = Math.ceil(total / 10);
   const paginator = 'underline text-true-gray-500 mr-2 cursor-pointer';
 
   return (

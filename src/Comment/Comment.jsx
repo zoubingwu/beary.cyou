@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
+import { useSWRConfig } from 'swr';
 
 import CommentList from './CommentList';
 import { postComment } from './fetch';
@@ -8,6 +9,7 @@ export default function Comment() {
   const [content, setContent] = useState('');
   const [nickname, setNickname] = useState('');
   const [sending, setSending] = useState(false);
+  const { mutate } = useSWRConfig();
 
   const handleSubmitComment = () => {
     if (!nickname) {
@@ -25,13 +27,16 @@ export default function Comment() {
     setSending(true);
     postComment(content, nickname)
       .then(() => {
-        alert('提交成功，请等待审核通过');
+        alert('提交成功');
       })
       .catch(e => {
         console.error(e);
         alert('提交失败，请稍后重试');
       })
-      .finally(() => setSending(false));
+      .finally(() => {
+        mutate('/api/comments');
+        setSending(false);
+      });
   };
 
   return (
@@ -53,7 +58,7 @@ export default function Comment() {
           disabled={sending}
           className="<sm:w-full w-180px h-36px bg-[#62BA6A] text-white rounded"
         >
-          发送
+          {sending ? '发送中' : '发送'}
         </button>
       </div>
 

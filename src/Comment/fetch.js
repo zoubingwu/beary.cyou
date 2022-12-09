@@ -1,21 +1,17 @@
 import axios from 'redaxios';
 
-const baseURL = 'https://cusdis.com/api/open';
-const appId = '3de79b13-ebe6-4f25-a02c-2be3136005e7';
-const pageId = 'home-page';
-const pageTitle = document.title;
-const pageUrl = window.location.href;
+const baseURL = 'https://beary-cyou.web7.workers.dev/api';
+// const baseURL = 'http://127.0.0.1:8787/api';
 
 export const api = axios.create({
   baseURL,
 });
 
-export function getComments(url = 'comments', page) {
+export function getComments(url = '/comments', page) {
   return api.get(url, {
     params: {
       page,
-      appId,
-      pageId,
+      pageSize: 10,
     },
   });
 }
@@ -23,12 +19,6 @@ export function getComments(url = 'comments', page) {
 export function postComment(content, nickname) {
   return api.post('/comments', {
     content,
-    nickname,
-
-    email: '',
-    appId,
-    pageId,
-    pageTitle,
-    pageUrl,
+    by_nickname: nickname,
   });
 }
