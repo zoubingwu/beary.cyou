@@ -1,0 +1,8 @@
+name = "beary-cyou"
+main = "cf/index.ts"
+compatibility_date = "2022-12-09"
+
+[[ d1_databases ]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "beary-cyou-comment"
+database_id = "7039f787-0375-4ad8-8086-6f35d0ac1fb2"
