@@ -26,6 +26,7 @@
     "wrangler": "^2.6.2"
   },
   "dependencies": {
+    "ahooks": "^3.7.2",
     "fullpage.js": "^3.1.2",
     "preact": "^10.10.2",
     "redaxios": "^0.4.1",

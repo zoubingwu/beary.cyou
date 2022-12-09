@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useSWRConfig } from 'swr';
+import { useInViewport } from 'ahooks';
 
 import CommentList from './CommentList';
 import { postComment } from './fetch';
@@ -9,7 +10,14 @@ export default function Comment() {
   const [content, setContent] = useState('');
   const [nickname, setNickname] = useState('');
   const [sending, setSending] = useState(false);
+  const [inView, setInView] = useState(false);
   const { mutate } = useSWRConfig();
+  const ref = useRef();
+  const [inViewport] = useInViewport(ref);
+
+  if (inViewport && !inView) {
+    setInView(true);
+  }
 
   const handleSubmitComment = () => {
     if (!nickname) {
@@ -40,7 +48,7 @@ export default function Comment() {
   };
 
   return (
-    <div class="w-full max-w-600px p-8">
+    <div class="w-full max-w-600px p-8" ref={ref}>
       <textarea
         onInput={e => setContent(e.target.value)}
         placeholder="还有话想说..."
@@ -62,7 +70,7 @@ export default function Comment() {
         </button>
       </div>
 
-      <CommentList />
+      {inView && <CommentList />}
     </div>
   );
 }

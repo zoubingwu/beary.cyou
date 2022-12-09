@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@cloudflare/workers-types': ^4.20221111.1
   '@vitejs/plugin-legacy': ^1.8.2
+  ahooks: ^3.7.2
   better-sqlite3: ^7.6.2
   fullpage.js: ^3.1.2
   husky: ^6.0.0
@@ -18,6 +19,7 @@ specifiers:
   wrangler: ^2.6.2
 
 dependencies:
+  ahooks: 3.7.2
   fullpage.js: 3.1.2
   preact: 10.10.2
   redaxios: 0.4.1
@@ -441,6 +443,13 @@ packages:
       '@types/node': 18.11.12
     dev: true
 
+  /@types/js-cookie/2.2.7:
+    resolution:
+      {
+        integrity: sha512-aLkWa0C0vO5b4Sr798E26QgOkss68Un0bLjs7u9qxzPT5CG+8DuNTffWES58YzJs3hrVAOs1wonycqEBqNJubA==,
+      }
+    dev: false
+
   /@types/minimatch/3.0.5:
     resolution:
       {
@@ -517,6 +526,35 @@ packages:
     engines: { node: '>=0.4.0' }
     hasBin: true
     dev: true
+
+  /ahooks-v3-count/1.0.0:
+    resolution:
+      {
+        integrity: sha512-V7uUvAwnimu6eh/PED4mCDjE7tokeZQLKlxg9lCTMPhN+NjsSbtdacByVlR1oluXQzD3MOw55wylDmQo4+S9ZQ==,
+      }
+    dev: false
+
+  /ahooks/3.7.2:
+    resolution:
+      {
+        integrity: sha512-nJPsQJcmJnGaNXiqgZdfO7UMs+o926LQg6VyDYt2vzKhXU8Ze/U87NsA/FeIvlIZB0rQr/j7uotFb1bGPp627A==,
+      }
+    engines: { node: '>=8.0.0' }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      '@types/js-cookie': 2.2.7
+      ahooks-v3-count: 1.0.0
+      dayjs: 1.11.7
+      intersection-observer: 0.12.2
+      js-cookie: 2.2.1
+      lodash: 4.17.21
+      resize-observer-polyfill: 1.5.1
+      screenfull: 5.2.0
+    dev: false
 
   /ansi-styles/4.3.0:
     resolution:
@@ -832,6 +870,13 @@ packages:
       shebang-command: 2.0.0
       which: 2.0.2
     dev: true
+
+  /dayjs/1.11.7:
+    resolution:
+      {
+        integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==,
+      }
+    dev: false
 
   /debug/4.3.4:
     resolution:
@@ -1781,6 +1826,13 @@ packages:
       }
     dev: true
 
+  /intersection-observer/0.12.2:
+    resolution:
+      {
+        integrity: sha512-7m1vEcPCxXYI8HqnL8CKI6siDyD+eIWSwgB3DZA+ZTogxk9I4CDnj4wilt9x/+/QbHI4YG5YZNmC6458/e9Ktg==,
+      }
+    dev: false
+
   /is-binary-path/2.1.0:
     resolution:
       {
@@ -1871,6 +1923,13 @@ packages:
     hasBin: true
     dev: true
 
+  /js-cookie/2.2.1:
+    resolution:
+      {
+        integrity: sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==,
+      }
+    dev: false
+
   /jsonfile/6.1.0:
     resolution:
       {
@@ -1906,6 +1965,13 @@ packages:
     dependencies:
       p-locate: 4.1.0
     dev: true
+
+  /lodash/4.17.21:
+    resolution:
+      {
+        integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==,
+      }
+    dev: false
 
   /lower-case/2.0.2:
     resolution:
@@ -2483,6 +2549,13 @@ packages:
     engines: { node: '>= 0.10' }
     dev: true
 
+  /resize-observer-polyfill/1.5.1:
+    resolution:
+      {
+        integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==,
+      }
+    dev: false
+
   /resolve/1.22.1:
     resolution:
       {
@@ -2559,6 +2632,14 @@ packages:
         integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==,
       }
     dev: true
+
+  /screenfull/5.2.0:
+    resolution:
+      {
+        integrity: sha512-9BakfsO2aUQN2K9Fdbj87RJIEZ82Q9IGim7FqM5OsebfoFC6ZHXgDq/KvniuLTPdeM8wY2o6Dj3WQ7KeQCj3cA==,
+      }
+    engines: { node: '>=0.10.0' }
+    dev: false
 
   /selfsigned/2.1.1:
     resolution:
@@ -2750,6 +2831,9 @@ packages:
       }
     peerDependencies:
       react: ^16.11.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
     dev: false
 
   /systemjs/6.12.2:
