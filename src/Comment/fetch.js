@@ -19,6 +19,6 @@ export function getComments(url = '/comments', page) {
 export function postComment(content, nickname) {
   return api.post('/comments', {
     content,
-    by_nickname: nickname,
+    nickname,
   });
 }

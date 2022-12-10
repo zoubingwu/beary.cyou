@@ -47,10 +47,10 @@ interface Comment {
   id: string;
   content: string;
   createdAt: string;
-  by_nickname: string;
+  nickname: string;
 }
 
-type PostCommentBody = Pick<Comment, 'content' | 'by_nickname'>;
+type PostCommentBody = Pick<Comment, 'content' | 'nickname'>;
 
 const getComments = async (env: Env, page: number, pageSize: number) => {
   const { results } = await env.DB.prepare(
@@ -74,7 +74,7 @@ const postComment = async (env: Env, content: string, nickname: string) => {
   const createdAt = new Date().toISOString();
 
   await env.DB.prepare(
-    `INSERT INTO Comments(id,createdAt,content,by_nickname) VALUES (?,?,?,?)`
+    `INSERT INTO Comments(id,createdAt,content,nickname) VALUES (?,?,?,?)`
   )
     .bind(uuid, createdAt, content, nickname)
     .run();
@@ -97,17 +97,17 @@ export default {
       response = await getComments(env, page, pageSize);
     } else if (request.method === 'POST' && pathname === '/api/comments') {
       const body = await request.json<PostCommentBody>();
-      const { content, by_nickname } = body;
+      const { content, nickname } = body;
       if (
         !content ||
-        !by_nickname ||
+        !nickname ||
         content.length > 255 ||
-        by_nickname.length > 100
+        nickname.length > 100
       ) {
         return new Response(null, { status: 400 });
       }
 
-      response = await postComment(env, body.content, body.by_nickname);
+      response = await postComment(env, body.content, body.nickname);
     }
 
     response.headers.set('Access-Control-Allow-Origin', '*');

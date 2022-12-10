@@ -24,7 +24,7 @@ export default function CommentList() {
     <div>
       {comments.map(i => (
         <CommentItem
-          name={i.by_nickname}
+          name={i.nickname}
           date={i.createdAt}
           content={i.content}
           key={i.id}
