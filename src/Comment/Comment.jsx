@@ -35,7 +35,7 @@ export default function Comment() {
     setSending(true);
     postComment(content, nickname)
       .then(() => {
-        alert('提交成功');
+        setContent('');
       })
       .catch(e => {
         console.error(e);
@@ -50,12 +50,14 @@ export default function Comment() {
   return (
     <div class="w-full max-w-600px p-8" ref={ref}>
       <textarea
+        value={content}
         onInput={e => setContent(e.target.value)}
         placeholder="还有话想说..."
         className="w-full min-h-100px bg-transparent rounded border-2 border-dark-700 border-solid p-2 placeholder-warm-gray-500"
       ></textarea>
       <div className="mb-8">
         <input
+          value={nickname}
           onInput={e => setNickname(e.target.value)}
           placeholder="昵称"
           type="text"
