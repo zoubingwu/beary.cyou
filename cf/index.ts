@@ -98,7 +98,12 @@ export default {
     } else if (request.method === 'POST' && pathname === '/api/comments') {
       const body = await request.json<PostCommentBody>();
       const { content, by_nickname } = body;
-      if (!content || !by_nickname) {
+      if (
+        !content ||
+        !by_nickname ||
+        content.length > 255 ||
+        by_nickname.length > 100
+      ) {
         return new Response(null, { status: 400 });
       }
 
