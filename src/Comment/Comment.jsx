@@ -1,19 +1,28 @@
 import * as React from 'react';
 import { useState, useRef } from 'react';
-import { useSWRConfig } from 'swr';
 import { useInViewport } from 'ahooks';
+import useSWR from 'swr';
 
-import CommentList from './CommentList';
-import { postComment } from './fetch';
+import { postComment, getComments } from './fetch';
+import { CommentItem } from './CommentItem';
 
 export default function Comment() {
   const [content, setContent] = useState('');
   const [nickname, setNickname] = useState('');
   const [sending, setSending] = useState(false);
   const [inView, setInView] = useState(false);
-  const { mutate } = useSWRConfig();
   const ref = useRef();
   const [inViewport] = useInViewport(ref);
+  const [page, setPage] = useState(1);
+  const { data, error, mutate } = useSWR(
+    inView ? ['/comments', page] : null,
+    getComments
+  );
+
+  const total = data?.data.total;
+  const comments = data?.data.data;
+  const pageCount = Math.ceil(total / 10);
+  const paginator = 'underline text-true-gray-500 mr-2 cursor-pointer';
 
   if (inViewport && !inView) {
     setInView(true);
@@ -42,7 +51,7 @@ export default function Comment() {
         alert('提交失败，请稍后重试');
       })
       .finally(() => {
-        mutate('/api/comments');
+        mutate();
         setSending(false);
       });
   };
@@ -72,7 +81,42 @@ export default function Comment() {
         </button>
       </div>
 
-      {inView && <CommentList />}
+      {error && <div>Failed to load comments...</div>}
+      {!data && <div>Loading...</div>}
+
+      {comments && (
+        <div>
+          {comments.map(i => (
+            <CommentItem
+              name={i.nickname}
+              date={i.createdAt}
+              content={i.content}
+              key={i.id}
+            />
+          ))}
+
+          {pageCount >= 5 && page > 5 && (
+            <a onClick={() => setPage(1)} className={paginator}>
+              first
+            </a>
+          )}
+          {pageCount > 1 && page > 1 && (
+            <a onClick={() => setPage(page - 1)} className={paginator}>
+              prev
+            </a>
+          )}
+          {pageCount > 1 && page < pageCount && (
+            <a onClick={() => setPage(page + 1)} className={paginator}>
+              next
+            </a>
+          )}
+          {pageCount >= 5 && page < pageCount && (
+            <a onClick={() => setPage(pageCount)} className={paginator}>
+              last
+            </a>
+          )}
+        </div>
+      )}
     </div>
   );
 }
