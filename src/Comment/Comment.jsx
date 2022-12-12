@@ -29,12 +29,12 @@ export default function Comment() {
   }
 
   const handleSubmitComment = () => {
-    if (!nickname) {
+    if (!nickname || !nickname.trim()) {
       alert('昵称不能为空');
       return;
     }
 
-    if (!content) {
+    if (!content || !content.trim()) {
       alert('内容不能为空');
       return;
     }
@@ -42,7 +42,7 @@ export default function Comment() {
     if (sending) return;
 
     setSending(true);
-    postComment(content, nickname)
+    postComment(content.trim(), nickname.trim())
       .then(() => {
         setContent('');
       })
