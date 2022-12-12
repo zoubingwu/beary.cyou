@@ -99,10 +99,14 @@ export default {
       const body = await request.json<PostCommentBody>();
       const { content, nickname } = body;
       if (
+        typeof content !== 'string' ||
+        typeof nickname !== 'string' ||
         !content ||
         !nickname ||
         content.length > 255 ||
-        nickname.length > 100
+        nickname.length > 100 ||
+        !content.trim() ||
+        !nickname.trim()
       ) {
         return new Response(null, { status: 400 });
       }
