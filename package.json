@@ -8,7 +8,7 @@
     "serve": "vite preview",
     "prepare": "husky install",
     "fmt": "prettier . --write",
-    "cf:publish": "wrangler publish",
+    "cf:publish": "wrangler deploy",
     "cf:dev": "wrangler dev --local --persist",
     "cf:seed": "wrangler d1 execute beary-cyou-comment --local --file=./backup/2022-12-10.sql"
   },
