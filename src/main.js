@@ -12,7 +12,7 @@ function loadImage(src, target) {
   img.onload = function () {
     document.querySelector(target).src = this.src;
   };
-  img.onerror = function (e) {
+  img.onerror = e => {
     console.error(e);
   };
   img.src = src;
@@ -32,7 +32,7 @@ function initFullPageEffect() {
   fullpageInstance = new fullpage('#app', {
     autoScrolling: false,
     fitToSection: false,
-    afterLoad: function (_, dest) {
+    afterLoad: (_, dest) => {
       scrolling = false;
       if (dest.isLast) {
         app.removeEventListener('wheel', handleWheel);

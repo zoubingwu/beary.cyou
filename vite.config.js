@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import { minifyHtml } from 'vite-plugin-html';
+import { createHtmlPlugin } from 'vite-plugin-html';
 import legacy from '@vitejs/plugin-legacy';
 import windicss from 'vite-plugin-windicss';
 
@@ -7,7 +7,11 @@ import windicss from 'vite-plugin-windicss';
 export default defineConfig({
   plugins: [
     windicss(),
-    minifyHtml(),
+    createHtmlPlugin({
+      minify: true,
+      entry: './src/main.js',
+      template: './index.html',
+    }),
     legacy({
       targets: ['defaults', 'not IE 11'],
     }),
