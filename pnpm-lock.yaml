@@ -16,9 +16,6 @@ importers:
       preact:
         specifier: ^10.22.1
         version: 10.22.1
-      redaxios:
-        specifier: ^0.5.1
-        version: 0.5.1
       swr:
         specifier: ^2.2.5
         version: 2.2.5(react@18.3.1)
@@ -2984,12 +2981,6 @@ packages:
       }
     engines: { node: '>=8.10.0' }
 
-  redaxios@0.5.1:
-    resolution:
-      {
-        integrity: sha512-FSD2AmfdbkYwl7KDExYQlVvIrFz6Yd83pGfaGjBzM9F6rpq8g652Q4Yq5QD4c+nf4g2AgeElv1y+8ajUPiOYMg==,
-      }
-
   regenerate-unicode-properties@10.1.1:
     resolution:
       {
@@ -5334,8 +5325,6 @@ snapshots:
   readdirp@3.6.0:
     dependencies:
       picomatch: 2.3.1
-
-  redaxios@0.5.1: {}
 
   regenerate-unicode-properties@10.1.1:
     dependencies:

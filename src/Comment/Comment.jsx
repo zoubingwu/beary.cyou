@@ -14,13 +14,10 @@ export default function Comment() {
   const ref = useRef();
   const [inViewport] = useInViewport(ref);
   const [page, setPage] = useState(1);
-  const { data, error, mutate } = useSWR(
-    inView ? ['/comments', page] : null,
-    getComments
-  );
+  const { data, error, mutate } = useSWR(inView ? page : null, getComments);
 
-  const total = data?.data.total;
-  const comments = data?.data.data;
+  const total = data?.total;
+  const comments = data?.data;
   const pageCount = Math.ceil(total / 10);
   const paginator = 'underline text-true-gray-500 mr-2 cursor-pointer';
 
@@ -73,6 +70,7 @@ export default function Comment() {
           className="<sm:w-full <sm:mb-2 bg-transparent rounded border-2 border-dark-700 border-solid px-2 placeholder-warm-gray-500 h-36px mr-4"
         />
         <button
+          type="button"
           onClick={handleSubmitComment}
           disabled={sending}
           className="<sm:w-full w-180px h-36px bg-[#62BA6A] text-white rounded"

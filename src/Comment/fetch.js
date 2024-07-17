@@ -1,24 +1,26 @@
-import axios from 'redaxios';
-
 const baseURL = 'https://beary-cyou.web7.workers.dev/api';
 // const baseURL = 'http://127.0.0.1:8787/api';
 
-export const api = axios.create({
-  baseURL,
-});
-
-export function getComments(url = '/comments', page) {
-  return api.get(url, {
-    params: {
-      page,
-      pageSize: 10,
+export async function getComments(page) {
+  const res = await fetch(`${baseURL}/comments?page=${page}&pageSize=10`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
     },
   });
+  return res.json();
 }
 
-export function postComment(content, nickname) {
-  return api.post('/comments', {
-    content,
-    nickname,
+export async function postComment(content, nickname) {
+  const res = await fetch(`${baseURL}/comments`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      content,
+      nickname,
+    }),
   });
+  return res.json();
 }
