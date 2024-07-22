@@ -10,9 +10,6 @@ importers:
       ahooks:
         specifier: ^3.8.0
         version: 3.8.0(react@18.3.1)
-      fullpage.js:
-        specifier: ^3.1.2
-        version: 3.1.2
       preact:
         specifier: ^10.22.1
         version: 10.22.1
@@ -2315,12 +2312,6 @@ packages:
       }
     engines: { node: ^8.16.0 || ^10.6.0 || >=11.0.0 }
     os: [darwin]
-
-  fullpage.js@3.1.2:
-    resolution:
-      {
-        integrity: sha512-hv7z6xhbg2StTp1UDq2hi+0oHjhT7cW3zCL3qCIJ3ood5pN0FRBQ2YKIOUobhsp4ATSQlr6sZ2TOcS+Ha+T7Cg==,
-      }
 
   function-bind@1.1.2:
     resolution:
@@ -4991,8 +4982,6 @@ snapshots:
 
   fsevents@2.3.3:
     optional: true
-
-  fullpage.js@3.1.2: {}
 
   function-bind@1.1.2: {}
 
