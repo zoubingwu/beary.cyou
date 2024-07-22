@@ -36,6 +36,10 @@ input:focus {
   display: none;
 }
 
+.section {
+  height: 100vh;
+}
+
 .section,
 .comment {
   background-color: bisque;
