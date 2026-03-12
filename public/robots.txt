@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://beary.cyou/sitemap.xml
